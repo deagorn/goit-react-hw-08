@@ -58,13 +58,15 @@ export const ContactList = () => {
     }
 
     return (
-        <ul className={s.listContainer}>
-            {contacts.map(contact =>
-                <ContactItem handleEditItem={() => handleEditItem(contact)} addToFavarite={() => addToFavarite(contact)} key={contact.id} {...contact} />)}
-            {isOpen && <Modal closeModal={toggle}>
-                <EditForm content={content} toggle={toggle}/>
-            </Modal>}
-        </ul>
+        <div className={s.listFlex}>
+            <ul className={s.listContainer}>
+                {contacts.map(contact =>
+                    <ContactItem handleEditItem={() => handleEditItem(contact)} addToFavarite={() => addToFavarite(contact)} key={contact.id} {...contact} />)}
+                {isOpen && <Modal closeModal={toggle}>
+                    <EditForm content={content} toggle={toggle} />
+                </Modal>}
+            </ul></div>
+        
     )
 }
 
