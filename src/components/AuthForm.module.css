@@ -1,0 +1,40 @@
+/* AuthForm.module.css */
+
+.container {
+  width: 100%;
+  height: 100vh; /* 100% висоти відносно висоти екрану */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* вирівнює контент по вертикалі в центрі */
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 15px; /* відступ між полями вводу */
+  padding: 10px; /* величина внутрішнього відступу в полі вводу */
+  border: 1px solid #ccc; /* колір рамки поля вводу */
+  border-radius: 5px; /* радіус закруглення кутів поля вводу */
+}
+
+.btn {
+  width: 100%; /* Зробити ширину кнопки 100% ширини контейнера */
+  margin-top: 15px; /* Відступ від верхнього поля вводу */
+  padding: 10px;
+  background-color: #6a0572; /* бурштиновий */
+  color: #fff; /* білий */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* плавний перехід кольору фону */
+}
+
+.btn:hover {
+  background-color: #350238; /* темно-синій */
+}

@@ -12,6 +12,12 @@ const NavBar = () => {
                 <li>
                     <NavLink to='/contacts' className='link'>Contacts</NavLink>
                 </li>
+                <li>
+                    <NavLink to='/register' className='link'>Register</NavLink>
+                </li>
+                <li>
+                    <NavLink to='/login' className='link'>Login</NavLink>
+                </li>
             </ul>
         </div>
     )
