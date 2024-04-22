@@ -13,28 +13,40 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 300px; /* Фіксована ширина форми */
+  max-width: 100%; /* Максимальна ширина форми 100% від контейнера */
 }
 
-.input {
-  width: 100%;
-  margin-bottom: 15px; /* відступ між полями вводу */
-  padding: 10px; /* величина внутрішнього відступу в полі вводу */
-  border: 1px solid #ccc; /* колір рамки поля вводу */
-  border-radius: 5px; /* радіус закруглення кутів поля вводу */
+.input,
+.btn {
+  width: 100%; /* Зробити ширину полів вводу та кнопки 100% ширини форми */
+  margin: 5px 0; /* Відступи від верхнього і нижнього краю */
+  padding: 10px; /* Величина внутрішнього відступу */
+  border: 1px solid #ccc; /* колір рамки */
+  border-radius: 5px; /* радіус закруглення кутів */
 }
 
 .btn {
-  width: 100%; /* Зробити ширину кнопки 100% ширини контейнера */
-  margin-top: 15px; /* Відступ від верхнього поля вводу */
-  padding: 10px;
-  background-color: #6a0572; /* бурштиновий */
-  color: #fff; /* білий */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* плавний перехід кольору фону */
+  margin-top: 15px; /* Відступ від верхнього поля вводу до кнопки */
+  background-color: #6a0572; /* Барвистий фон кнопки */
+  color: #fff; /* Колір тексту кнопки */
+  border: none; /* Без рамки */
+  cursor: pointer; /* Зміна курсору при наведенні */
+  transition: background-color 0.3s ease; /* Плавний перехід кольору фону */
 }
 
 .btn:hover {
-  background-color: #350238; /* темно-синій */
+  background-color: #350238; /* Фон кнопки при наведенні */
+}
+
+.error {
+  margin: 0; /* Нульовий відступ для повідомлення про помилку */
+  color: red; /* Червоний колір для відображення помилок */
+  font-size: 14px; /* Розмір тексту помилки */
+}
+
+.label {
+  width: 100%; /* Ширина текстових міток 100% */
+  margin-bottom: 10px; /* Відступ між текстовими мітками */
+  font-size: 16px; /* Розмір тексту міток */
 }
