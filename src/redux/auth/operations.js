@@ -29,3 +29,18 @@ export const logoutThunk = createAsyncThunk('auth/logout', async (credentials, t
         return thunkApi.rejectWithValue(error.message)
     }
 })
+
+export const refreshThunk = createAsyncThunk('auth/refresh', async (credentials, thunkApi) => {
+    const saveToken = thunkApi.getState().auth.token
+    if (!saveToken) {
+       return thunkApi.rejectWithValue('НЕМАЄ КОРИСТУВАЧА')
+    }
+    setToken(saveToken)
+
+    try {
+        const { data } = await goitApi.get('/users/current', credentials)
+        return data
+    } catch (error) {
+        return thunkApi.rejectWithValue(error.message)
+    }
+})
