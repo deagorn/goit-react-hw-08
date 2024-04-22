@@ -1,29 +1,19 @@
 import { ErrorMessage, Field, Form, Formik } from "formik"
 import styles from "./AuthForm.module.css";
 import { Link } from "react-router-dom";
+import CustomInputs from "./CustomInputs";
 
 const AuthForm = ({title, onSubmit, initialValues, type, validationScrema}) => {
   return (
     <div className={styles.container}>
       <Formik validationSchema={validationScrema} onSubmit={onSubmit} initialValues={initialValues}>
         <Form className={styles.form}>
-          {type === 'register' && <label className={styles.label}>
-            Name
-            <Field className={styles.input} type='text' name='name' placeholder='Enter your name' />
-            <ErrorMessage className={styles.error} name='name' component={'p'} />
-          </label> }
+          {type === 'register' && <CustomInputs name='name' type='text' placeholder='Enter your name'/>}
 
-          <label className={styles.label}>
-            Email
-            <Field className={styles.input} type='text' name='email' placeholder='Enter your email' />
-            <ErrorMessage className={styles.error} name='email' component={'p'} />
-          </label>
+          <CustomInputs name='email' type='text' placeholder='Enter your email' />
+          <CustomInputs name='password' type='text' placeholder='Enter your password'/>
 
-          <label className={styles.label}>
-            Password
-            <Field className={styles.input} type='password' name='password' placeholder='Enter your password' />
-            <ErrorMessage className={styles.error} name='password' component={'p'} />
-          </label>
+
           <button className={styles.btn} type="submit">{title}</button>
           <p> You {type === 'register' ? 'already have an account?' : 'dont have an account?'}
             <Link to={type === 'register' ? '/login' : '/register'}>{type === 'register' ? '  Login' : '  Register'}</Link></p>
