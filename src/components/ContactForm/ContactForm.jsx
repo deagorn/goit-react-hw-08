@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
 // import { addContacts } from "../../redux/Contacts/slice"
 import { selectUser } from "../../redux/userSlice"
-import { addContactThunk } from "../../redux/Contacts/operations"
+import { addContactThunk } from "../../redux/contacts/operations"
 
 export const ContactForm = () => {
 

@@ -1,7 +1,7 @@
 import s from "./ContactList.module.css"
 import { useDispatch } from 'react-redux'
 import { MdDeleteOutline } from "react-icons/md";
-import { removeContactThunk } from '../../redux/Contacts/operations';
+import { removeContactThunk } from '../../redux/contacts/operations';
 
 
 export const ContactItem = ({ id, name, number }) => {

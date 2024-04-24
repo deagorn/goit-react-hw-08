@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchDataThunk } from '../../redux/Contacts/operations'
-import { selectIsError, selectIsLoading } from '../../redux/Contacts/slice'
+import { fetchDataThunk } from '../../redux/contacts/operations'
+import { selectIsError, selectIsLoading } from '../../redux/contacts/slice'
 
 import { ContactForm } from '../ContactForm/ContactForm'
 import { ContactList } from '../ContactList/ContactList'
