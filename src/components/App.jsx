@@ -5,11 +5,13 @@ import { TodoList } from "./TodoList/TodoList";
 import NotFound from "../pages/NotFound";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { refreshThunk } from "../redux/auth/operations";
 import { useEffect } from "react";
 import PrivatPoute from "../routes/PrivatPoute";
 import PublicRoute from "../routes/PublicRoute";
+import { selectSiFreshing } from "../redux/auth/slice";
+import Loader from "./Loader";
 // import { TodoList } from "./TodoList/TodoList";
 
 //  nadia@iood.ua
@@ -17,13 +19,18 @@ import PublicRoute from "../routes/PublicRoute";
 export const App = () => {
 
   const dispatch = useDispatch()
+  const isRefreshin = useSelector(selectSiFreshing)
 
+  console.log(isRefreshin)
+  
   useEffect(() => {
     dispatch(refreshThunk())
   }, [dispatch])
 
   return (
     // <TodoList />
+
+    isRefreshin ? <Loader/> :
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
