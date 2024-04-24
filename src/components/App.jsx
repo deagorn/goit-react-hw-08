@@ -8,6 +8,8 @@ import Login from "../pages/Login";
 import { useDispatch } from "react-redux";
 import { refreshThunk } from "../redux/auth/operations";
 import { useEffect } from "react";
+import PrivatPoute from "../routes/PrivatPoute";
+import PublicRoute from "../routes/PublicRoute";
 // import { TodoList } from "./TodoList/TodoList";
 
 //  nadia@iood.ua
@@ -23,15 +25,26 @@ export const App = () => {
   return (
     // <TodoList />
     <Routes>
-      < Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="contacts" element={<TodoList />} />
-        
+
+        <Route path="contacts" element={
+          <PrivatPoute>
+            <TodoList />
+          </PrivatPoute>
+        } />
 
       </Route>
 
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login/>} />
+      <Route path="/register" element={
+        <PublicRoute>
+          <Register />
+        </PublicRoute>} />
+      
+      <Route path="/login" element={
+        <PublicRoute>
+          <Login />
+        </PublicRoute>} />
 
       <Route path="*" element={<NotFound />} />
       

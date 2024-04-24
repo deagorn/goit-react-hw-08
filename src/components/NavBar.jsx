@@ -30,7 +30,7 @@ const NavBar = () => {
                 </>}
                 {isLoggedIn &&
                     <li>
-                        <NavLink to='/login' onClick={() => dispatch(logoutThunk())} className='link'>Logout</NavLink>
+                        <NavLink onClick={() => dispatch(logoutThunk())} className='link'>Logout</NavLink>
                     </li>}
             </ul>
         </div>
