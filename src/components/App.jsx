@@ -21,8 +21,6 @@ export const App = () => {
   const dispatch = useDispatch()
   const isRefreshin = useSelector(selectSiFreshing)
 
-  console.log(isRefreshin)
-  
   useEffect(() => {
     dispatch(refreshThunk())
   }, [dispatch])

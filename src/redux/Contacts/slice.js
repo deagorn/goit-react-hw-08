@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit"
 import { addContactThunk, addToFavariteThunk, editContactThunk, fetchDataThunk, removeContactThunk } from "./operations"
+import { logoutThunk } from "../auth/operations"
 
 const initialState = {
     items: [],
@@ -17,7 +18,7 @@ const slice = createSlice({
             state.items = payload
             state.loading = false
         },
-        isLoading: (state, {payload}) => {
+        isLoading: (state) => {
             state.loading = true
         },
         isError: (state, {payload}) => {
@@ -46,18 +47,13 @@ const slice = createSlice({
     },
     extraReducers: builder => {
         builder
-            // .addCase(fetchDataThunk.pending, state => {
-            //     state.loading = true
-            //     state.error = null
-            // })
+            .addCase(logoutThunk.pending, (state) => {
+                state.items = []
+            })
             .addCase(fetchDataThunk.fulfilled, (state, { payload }) => {
                 state.items = payload
                 state.loading = false
             })
-            // .addCase(fetchDataThunk.rejected, (state, { payload }) => {
-            //     state.error = payload
-            //     state.loading = false
-            // })
             .addCase(removeContactThunk.fulfilled, (state, { payload }) => {
                 state.items = state.items.filter(item => item.id !== payload)
             })
@@ -79,7 +75,7 @@ const slice = createSlice({
                 state.error = payload
                 state.loading = false
             })
-            .addMatcher(isAnyOf(fetchDataThunk.fulfilled, removeContactThunk.fulfilled, addContactThunk.fulfilled), (state, { payload }) => {
+            .addMatcher(isAnyOf(fetchDataThunk.fulfilled, removeContactThunk.fulfilled, addContactThunk.fulfilled), (state) => {
                 state.loading = false
             })
     },

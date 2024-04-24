@@ -1,6 +1,5 @@
 import s from "./ContactForm.module.css"
 
-import React from 'react'
 import { nanoid } from "nanoid"
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector } from "react-redux"
@@ -15,8 +14,8 @@ export const ContactForm = () => {
 
   const user = useSelector(selectUser)
   
-  const submit = ({ name, phone }) => {
-		const newContact = { name, phone, id: nanoid(), favorite: false, author:user }
+  const submit = ({ name, number }) => {
+		const newContact = { name, number, id: nanoid(), favorite: false, author:user }
 		dispatch(addContactThunk(newContact))
 		reset()
   }
@@ -26,8 +25,8 @@ export const ContactForm = () => {
       <h1 className={s.label}>Contacts book</h1>
       <label className={s.label}>   Name
         <input {...register('name')} type="text" name="name" required className={s.inputField} /> </label>
-      <label className={s.label}>  phone
-        <input {...register('phone')} type="tel" name="phone"  required className={s.inputField} />
+      <label className={s.label}>  number
+        <input {...register('number')} type="tel" name="number"  required className={s.inputField} />
       </label>
 
       <button className={s.submitButton}>Add contact</button>
